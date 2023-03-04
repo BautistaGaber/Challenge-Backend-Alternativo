@@ -20,6 +20,6 @@ namespace ChallengeAlternativo.Core.Repository
         public async Task SaveChange()
         {
            await _context.SaveChangesAsync();
-        }
+        }       
     }
 }
