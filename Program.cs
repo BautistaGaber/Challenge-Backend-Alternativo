@@ -1,3 +1,7 @@
+using ChallengeAlternativo.Core.Repository;
+using ChallengeAlternativo.Core.Repository.Interfaces;
+using ChallengeAlternativo.Core.Services;
+using ChallengeAlternativo.Core.Services.Interfaces;
 using ChallengeAlternativo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -14,7 +18,12 @@ services.AddControllers();
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
 services.AddDbContext<AplicationDbContext>(options => { options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")); });
-
+services.AddScoped<IContinentRepository, ContinentRepository>();
+services.AddScoped<ICountryRepository, CountryRepository>();
+services.AddScoped<IGeographicIconsRepository, GeographicIconRepository>();
+services.AddScoped<IContinentServices, ContinentServices>();
+services.AddScoped<ICountryServices, CountryServices>();
+services.AddScoped<IGeographicIconsServices, GeographicIconsServices>();
 
 services.AddSwaggerGen(c =>
 {

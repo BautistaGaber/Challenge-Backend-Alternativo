@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ChallengeAlternativo.Core.Repository
 {
-    public class GeographicsIconsRepository : IGeographicIconsRepository
+    public class GeographicIconRepository : IGeographicIconsRepository
     {
         private readonly AplicationDbContext _context;    
 
-        public GeographicsIconsRepository(AplicationDbContext context)
+        public GeographicIconRepository(AplicationDbContext context)
         {
             _context = context;
         }
