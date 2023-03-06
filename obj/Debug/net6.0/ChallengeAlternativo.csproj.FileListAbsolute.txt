@@ -164,3 +164,5 @@ C:\Users\bauti\source\repos\ChallengeAlternativoAlkemy\ChallengeAlternativo\obj\
 C:\Users\bauti\source\repos\ChallengeAlternativoAlkemy\ChallengeAlternativo\obj\Debug\net6.0\ChallengeAlternativo.pdb
 C:\Users\bauti\source\repos\ChallengeAlternativoAlkemy\ChallengeAlternativo\obj\Debug\net6.0\ChallengeAlternativo.genruntimeconfig.cache
 C:\Users\bauti\source\repos\ChallengeAlternativoAlkemy\ChallengeAlternativo\obj\Debug\net6.0\ref\ChallengeAlternativo.dll
+C:\Users\bauti\source\repos\ChallengeAlternativoAlkemy\ChallengeAlternativo\bin\Debug\net6.0\ChallengeAlternativo.xml
+C:\Users\bauti\source\repos\ChallengeAlternativoAlkemy\ChallengeAlternativo\obj\Debug\net6.0\ChallengeAlternativo.xml
