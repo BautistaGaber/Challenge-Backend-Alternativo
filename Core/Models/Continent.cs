@@ -2,7 +2,7 @@
 
 namespace ChallengeAlternativo.Models
 {
-    public class Country
+    public class Continent
     {
         [Key]
         public int Id { get; set; }
@@ -15,16 +15,8 @@ namespace ChallengeAlternativo.Models
         [Display(Name = "Denomination")]
         public string Denomination { get; set; }
 
-        [Required]
-        [Display(Name = "Habitants")]
-        public int Habitants { get; set; }
+        public ICollection<Country> Country { get; set; } = new List<Country>();
 
-        [Required]
-        [Display(Name = "TotalArea")]
-        public decimal TotalArea { get; set; }  
-        
         public ICollection<GeographicIcons> GeographicIcons { get; set; } = new List<GeographicIcons>();
-
-        public List<Continent> Continent { get; set; }
     }
 }

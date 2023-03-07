@@ -27,6 +27,6 @@ namespace ChallengeAlternativo.Models
         [Display(Name = "History")]
         public string History { get; set; }
 
-        public ICollection<Continent> Continent { get; set; } = new List<Continent>();
+        public ICollection<Country> Country { get; set; } = new List<Country>();
     }
 }
