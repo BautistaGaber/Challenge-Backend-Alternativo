@@ -1,4 +1,5 @@
 ﻿using ChallengeAlternativo.Core.Services.Interfaces;
+using ChallengeAlternativo.DTOs;
 using ChallengeAlternativo.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,9 +24,9 @@ namespace ChallengeAlternativo.Core.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCountry(Country country)
+        public async Task<IActionResult> CreateCountry(CreateCountryDTO createCountryDTO)
         {
-            var result = await _services.CreateCountry(country);
+            var result = await _services.CreateCountry(createCountryDTO);
             if (result == null)
             {
                 return BadRequest();
