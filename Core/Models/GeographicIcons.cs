@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ChallengeAlternativo.DTOs;
+using System.ComponentModel.DataAnnotations;
 
 namespace ChallengeAlternativo.Models
 {
@@ -28,5 +29,20 @@ namespace ChallengeAlternativo.Models
         public string History { get; set; }
 
         public ICollection<Country> Country { get; set; } = new List<Country>();
+
+        public GeographicIcons()
+        {
+
+        }
+
+        public GeographicIcons(CreateGeographicIconsDTO dto)
+        {
+            Image = dto.Image;
+            Denomination = dto.Denomination;
+            History = dto.History;
+            height = dto.height;
+            Creation = dto.Creation;
+        }
+
     }
 }
