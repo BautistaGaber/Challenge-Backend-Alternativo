@@ -1,4 +1,5 @@
 ﻿using ChallengeAlternativo.Core.Services.Interfaces;
+using ChallengeAlternativo.DTOs;
 using ChallengeAlternativo.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +23,9 @@ namespace ChallengeAlternativo.Core.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateGeographicIcons(GeographicIcons geographicIcons)
+        public async Task<IActionResult> CreateGeographicIcons(CreateGeographicIconsDTO createGeographicIconsDTO)
         {
-            var result = await _services.CreateGeographicIcons(geographicIcons);
+            var result = await _services.CreateGeographicIcons(createGeographicIconsDTO);
             if(result == null)
             {
                 return BadRequest();
