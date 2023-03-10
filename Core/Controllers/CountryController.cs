@@ -23,6 +23,13 @@ namespace ChallengeAlternativo.Core.Controllers
             return Ok(await _services.GetContries());
         }
 
+        [HttpGet]
+        [Route("/SerchCountries/{id}")]
+        public async Task<IActionResult> GetCountriesbyId([FromRoute]int id)
+        {
+            return Ok(await _services.GetContriesbyId(id));
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateCountry(CreateCountryDTO createCountryDTO)
         {

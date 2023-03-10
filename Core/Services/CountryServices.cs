@@ -28,6 +28,11 @@ namespace ChallengeAlternativo.Core.Services
             return await _repository.GetContries();
         }
 
+        public Task<Country> GetContriesbyId(int id)
+        {
+            return _repository.GetContriesbyId(id);
+        }
+
         public async Task UpdateCountry(Country country)
         {
             await _repository.UpdateCountry(country);

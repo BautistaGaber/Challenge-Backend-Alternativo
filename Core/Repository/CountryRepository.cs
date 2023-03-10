@@ -18,6 +18,12 @@ namespace ChallengeAlternativo.Core.Repository
             return await _context.countries.ToListAsync();           
         }
 
+        public async Task<Country> GetContriesbyId(int id)
+        {
+            var result = await _context.countries.FirstOrDefaultAsync(c => c.Id == id);
+            return result;
+        }
+
         public async Task<Country> CreateCountry(Country country)
         {
             await _context.countries.AddAsync(country);
