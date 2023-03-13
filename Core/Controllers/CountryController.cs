@@ -41,9 +41,9 @@ namespace ChallengeAlternativo.Core.Controllers
             return Ok(result);
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateCountry(Country country)
+        public async Task<IActionResult> UpdateCountry(UpdateCountryDTO updateCountryDTO, [FromQuery]int id)
         {
-            var result = _services.UpdateCountry(country);
+            var result = _services.UpdateCountry(updateCountryDTO, id);
                 if (result == null)
             {
                 return BadRequest();
