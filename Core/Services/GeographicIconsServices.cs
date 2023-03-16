@@ -1,6 +1,7 @@
 ﻿using ChallengeAlternativo.Core.Repository.Interfaces;
 using ChallengeAlternativo.Core.Services.Interfaces;
 using ChallengeAlternativo.DTOs;
+using ChallengeAlternativo.Helper;
 using ChallengeAlternativo.Models;
 using System;
 
@@ -14,7 +15,7 @@ public class GeographicIconsServices : IGeographicIconsServices
 
 	public async Task<GeographicIcons> CreateGeographicIcons(CreateGeographicIconsDTO createGeographicIconsDTO)
 	{
-		return await _repository.CreateGeographicIcons(new GeographicIcons(createGeographicIconsDTO));
+		return await _repository.CreateGeographicIcons(ApiHelper.CreateGeographicIconsDtoToEntity(createGeographicIconsDTO));
 	}
 
 	public async Task DeleteGeographicIcons(int id)
@@ -27,8 +28,16 @@ public class GeographicIconsServices : IGeographicIconsServices
 		return await _repository.GetGeographicIcons();
 	}
 
-	public async Task UpdateGeographicIcons(GeographicIcons geographicIcons)
+	public async Task<GeographicIcons> UpdateGeographicIconsById(int id)
 	{
-		await _repository.UpdateGeographicsIcons(geographicIcons);
+		return await _repository.GetGeographicIconsById(id);
+	}
+
+	public async Task UpdateGeographicIcons(UpdateGeographicIconsDTO updateGeographicIconsDTO, int id)
+	{
+		GeographicIcons GeographicIcons = await _repository.GetGeographicIconsById(id);
+		if(GeographicIcons == null)
+			return;
+		await _repository.UpdateGeographicsIcons(ApiHelper.UpdateGeographicIconsDtoToEntity(updateGeographicIconsDTO, GeographicIcons));
 	}
 }

@@ -34,15 +34,5 @@ namespace ChallengeAlternativo.Models
         {
 
         }
-
-        public GeographicIcons(CreateGeographicIconsDTO dto)
-        {
-            Image = dto.Image;
-            Denomination = dto.Denomination;
-            History = dto.History;
-            height = dto.height;
-            Creation = dto.Creation;
-        }
-
     }
 }

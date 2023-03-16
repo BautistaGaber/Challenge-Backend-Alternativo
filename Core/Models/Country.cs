@@ -28,15 +28,6 @@ namespace ChallengeAlternativo.Models
 
         public Country()
         {
-
-        }
-
-        public Country(CreateCountryDTO dto)
-        {
-            Image = dto.Image;
-            Denomination = dto.Denomination;
-            Habitants = dto.Habitants;
-            TotalArea = dto.TotalArea;
         }
     }
 }

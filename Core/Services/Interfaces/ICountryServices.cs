@@ -8,7 +8,7 @@ namespace ChallengeAlternativo.Core.Services.Interfaces
         Task<List<Country>> GetContries();
         Task<Country> GetContriesbyId(int id);
         Task<Country> CreateCountry(CreateCountryDTO createCoutryDTO);
-        Task UpdateCountry(UpdateCountryDTO updateCountryDTO);
+        Task UpdateCountry(UpdateCountryDTO updateCountryDTO, int id);
         Task DeleteCountry(int id);
     }
 }

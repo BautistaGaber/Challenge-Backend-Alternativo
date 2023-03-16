@@ -34,9 +34,9 @@ namespace ChallengeAlternativo.Core.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateGeographicIcons(GeographicIcons geographicIcons)
+        public async Task<IActionResult> UpdateGeographicIcons(UpdateGeographicIconsDTO updateGeographicIconsDTO,[FromQuery] int id)
         {
-            var result = _services.UpdateGeographicIcons(geographicIcons);
+            var result = _services.UpdateGeographicIcons(updateGeographicIconsDTO, id);
             if(result == null)
             {
                 return BadRequest();

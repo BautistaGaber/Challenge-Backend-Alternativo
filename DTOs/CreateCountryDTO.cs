@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ChallengeAlternativo.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace ChallengeAlternativo.DTOs
 {

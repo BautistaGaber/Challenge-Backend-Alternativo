@@ -32,6 +32,12 @@ namespace ChallengeAlternativo.Core.Repository
             return await _context.GeographicIcons.ToListAsync();
         }
 
+        public async Task<GeographicIcons> GetGeographicIconsById(int id)
+        {
+            var result = await _context.GeographicIcons.FirstOrDefaultAsync(c => c.Id == id);
+            return result;
+        }
+
         public async Task SaveChanges()
         {
             await _context.SaveChangesAsync(); 

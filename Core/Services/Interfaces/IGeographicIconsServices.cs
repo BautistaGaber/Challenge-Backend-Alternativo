@@ -7,7 +7,8 @@ namespace ChallengeAlternativo.Core.Services.Interfaces
     {
         Task<List<GeographicIcons>> GetGeographicIcons();
         Task<GeographicIcons> CreateGeographicIcons(CreateGeographicIconsDTO createGeographicIconsDTO);
-        Task UpdateGeographicIcons(GeographicIcons geographicIcons);
+        Task<GeographicIcons> UpdateGeographicIconsById(int id);
+        Task UpdateGeographicIcons(UpdateGeographicIconsDTO updateGeographicIconsDTO, int id);
         Task DeleteGeographicIcons(int id);
     }
 }

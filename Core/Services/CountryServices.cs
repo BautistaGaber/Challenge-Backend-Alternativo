@@ -1,6 +1,7 @@
 ﻿using ChallengeAlternativo.Core.Repository.Interfaces;
 using ChallengeAlternativo.Core.Services.Interfaces;
 using ChallengeAlternativo.DTOs;
+using ChallengeAlternativo.Helper;
 using ChallengeAlternativo.Models;
 
 namespace ChallengeAlternativo.Core.Services
@@ -15,7 +16,7 @@ namespace ChallengeAlternativo.Core.Services
 
         public async Task<Country> CreateCountry(CreateCountryDTO createCountryDTO)
         {
-            return await _repository.CreateCountry(new Country(createCountryDTO));            
+            return await _repository.CreateCountry(ApiHelper.CreateCountryDtoToEntity(createCountryDTO));            
         }
 
         public async Task DeleteCountry(int id)
@@ -33,9 +34,13 @@ namespace ChallengeAlternativo.Core.Services
             return _repository.GetContriesbyId(id);
         }
 
-        public async Task UpdateCountry(Country country)
+        public async Task UpdateCountry(UpdateCountryDTO updateCountryDTO, int id)
         {
-            await _repository.UpdateCountry(country);
+            Country country = await _repository.GetContriesbyId(id);
+            if (country == null)
+                return;
+            await _repository.UpdateCountry(ApiHelper.UpdateCountryDtoToEntity(updateCountryDTO, country));     
+            await _repository.SaveChanges();
         }
     }
 }
