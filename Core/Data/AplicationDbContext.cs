@@ -1,4 +1,5 @@
-﻿using ChallengeAlternativo.Models;
+﻿using ChallengeAlternativo.Core.Users;
+using ChallengeAlternativo.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChallengeAlternativo.Data
@@ -10,5 +11,6 @@ namespace ChallengeAlternativo.Data
         public DbSet<Country> countries { get; set; }
         public DbSet<Continent> continents { get; set; }
         public DbSet<GeographicIcons> GeographicIcons { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
