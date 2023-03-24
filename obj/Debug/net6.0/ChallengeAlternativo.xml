@@ -40,5 +40,17 @@
         <member name="M:ChallengeAlternativo.primera.tercera.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:ChallengeAlternativo.primera.Cuarta">
+            <inheritdoc />
+        </member>
+        <member name="M:ChallengeAlternativo.primera.Cuarta.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ChallengeAlternativo.primera.Cuarta.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ChallengeAlternativo.primera.Cuarta.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>
