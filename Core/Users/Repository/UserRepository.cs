@@ -1,5 +1,6 @@
 ﻿using ChallengeAlternativo.Core.Users.Repository.Interfaces;
 using ChallengeAlternativo.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ChallengeAlternativo.Core.Users.Repository
 {
@@ -11,19 +12,23 @@ namespace ChallengeAlternativo.Core.Users.Repository
             _context = context;
         }
 
-        public Task<User> CreateUser(User user)
+        public async Task<User> CreateUser(User user)
         {
-            throw new NotImplementedException();
+            await _context.Users.AddAsync(user);
+            _context.SaveChanges();
+            return user;            
         }
 
-        public Task<User> GetUserById(int id)
+        public async Task<User> GetUserById(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
+            return result;
         }
 
-        public Task<User> GetUserByUserName(string userName)
+        public async Task<User> GetUserByUserName(string userName)
         {
-            throw new NotImplementedException();
+            var result = await _context.Users.FirstOrDefaultAsync(u => u.UserName == userName);
+            return result;
         }
     }
 }

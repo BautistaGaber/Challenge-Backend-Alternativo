@@ -1,4 +1,5 @@
-﻿using ChallengeAlternativo.DTOs;
+﻿using ChallengeAlternativo.Core.Users;
+using ChallengeAlternativo.DTOs;
 using ChallengeAlternativo.Models;
 
 namespace ChallengeAlternativo.Helper
@@ -26,6 +27,15 @@ namespace ChallengeAlternativo.Helper
             geographicIcons.Creation = dto.Creation;
 
             return geographicIcons;
+        }
+
+        public static User CreateUserToEntity(UserDTO dto)
+        {
+            User user = new User();
+            user.UserName = dto.UserName;
+            user.Password = dto.Password;
+
+            return user;
         }
 
 

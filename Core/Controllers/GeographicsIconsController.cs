@@ -26,7 +26,7 @@ namespace ChallengeAlternativo.Core.Controllers
         public async Task<IActionResult> CreateGeographicIcons(CreateGeographicIconsDTO createGeographicIconsDTO)
         {
             var result = await _services.CreateGeographicIcons(createGeographicIconsDTO);
-            if(result == null)
+            if (result == null)
             {
                 return BadRequest();
             }
@@ -34,10 +34,10 @@ namespace ChallengeAlternativo.Core.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateGeographicIcons(UpdateGeographicIconsDTO updateGeographicIconsDTO,[FromQuery] int id)
+        public async Task<IActionResult> UpdateGeographicIcons(UpdateGeographicIconsDTO updateGeographicIconsDTO, [FromQuery] int id)
         {
             var result = _services.UpdateGeographicIcons(updateGeographicIconsDTO, id);
-            if(result == null)
+            if (result == null)
             {
                 return BadRequest();
             }
@@ -47,12 +47,12 @@ namespace ChallengeAlternativo.Core.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteGeographicIcons(int id)
         {
-            var result =  _services.DeleteGeographicIcons(id);
+            var result = _services.DeleteGeographicIcons(id);
             if (result == null)
             {
-              return BadRequest();
+                return BadRequest();
             }
-              return Ok();
+            return Ok();
         }
     }
 }

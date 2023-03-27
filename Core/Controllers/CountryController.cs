@@ -25,7 +25,7 @@ namespace ChallengeAlternativo.Core.Controllers
 
         [HttpGet]
         [Route("/SerchCountries/{id}")]
-        public async Task<IActionResult> GetCountriesbyId([FromRoute]int id)
+        public async Task<IActionResult> GetCountriesbyId([FromRoute] int id)
         {
             return Ok(await _services.GetContriesbyId(id));
         }
@@ -41,10 +41,10 @@ namespace ChallengeAlternativo.Core.Controllers
             return Ok(result);
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateCountry(UpdateCountryDTO updateCountryDTO, [FromQuery]int id)
+        public async Task<IActionResult> UpdateCountry(UpdateCountryDTO updateCountryDTO, [FromQuery] int id)
         {
             var result = _services.UpdateCountry(updateCountryDTO, id);
-                if (result == null)
+            if (result == null)
             {
                 return BadRequest();
             }

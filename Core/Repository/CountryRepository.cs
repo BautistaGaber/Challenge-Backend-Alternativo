@@ -15,7 +15,7 @@ namespace ChallengeAlternativo.Core.Repository
 
         public async Task<List<Country>> GetContries()
         {
-            return await _context.countries.ToListAsync();           
+            return await _context.countries.ToListAsync();
         }
 
         public async Task<Country> GetContriesbyId(int id)
@@ -35,12 +35,12 @@ namespace ChallengeAlternativo.Core.Repository
         {
             var result = await _context.countries.FirstOrDefaultAsync(c => c.Id == id);
             _context.countries.Remove(result);
-             await SaveChanges();
+            await SaveChanges();
         }
-       
+
         public async Task UpdateCountry(Country country)
         {
-            _context.countries.Update(country);           
+            _context.countries.Update(country);
         }
 
         public async Task SaveChanges()

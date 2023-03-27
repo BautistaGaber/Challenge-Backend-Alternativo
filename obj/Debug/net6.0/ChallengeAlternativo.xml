@@ -4,6 +4,11 @@
         <name>ChallengeAlternativo</name>
     </assembly>
     <members>
+        <member name="M:ChallengeAlternativo.Middleware.ExceptionHandler.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+               Procesa el mensaje, atrapando las excepciones generadas.
+            </summary>
+        </member>
         <member name="T:ChallengeAlternativo.primera.first">
             <inheritdoc />
         </member>
