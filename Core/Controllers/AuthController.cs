@@ -20,7 +20,7 @@ namespace ChallengeAlternativo.Core.Controllers
             _services = services;
         }
 
-        [HttpPost("Register")]
+        [HttpPost("register")]
         public async Task<ActionResult<User>> Register([FromBody] UserDTO userDTO)
         {
             var result = await _services.GetUserByUserName(userDTO.UserName);
