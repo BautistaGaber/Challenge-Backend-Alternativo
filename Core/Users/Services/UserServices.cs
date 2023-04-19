@@ -18,26 +18,26 @@ namespace ChallengeAlternativo.Core.Users.Services
         public async Task<User> CreateUser(UserDTO userDTO)
         {
             User user = ApiHelper.CreateUserToEntity(userDTO);
-            CreatePasswordHash(userDTO.Password, out byte[] passwordHash, out byte[] passwordSalt);
-
-
+            //CreatePasswordHash(userDTO.Password, out byte[] passwordHash, out byte[] passwordSalt);
+            
             user.UserName = userDTO.UserName;
-            user.PasswordHash = passwordHash;
-            user.PasswordSalt = passwordSalt;
+            user.Password = ApiHelper.EncriptarContraseña(userDTO.Password);
 
             var result = await _repository.CreateUser(user);
             return result;
         }
 
 
-        public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            using (var hmac = new HMACSHA512())
-            {
-                passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-            }
-        }
+        //public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        //{
+        //    using (var hmac = new HMACSHA512())
+        //    {
+        //        passwordSalt = hmac.Key;
+        //        passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+        //    }
+        //}
+
+        
 
         public async Task<User> GetUserById(int id)
         {
@@ -46,18 +46,16 @@ namespace ChallengeAlternativo.Core.Users.Services
 
         public async Task<User> GetUserByUserName(string userName)
         {
-            var result = await _repository.GetUserByUserName(userName);
-            return result;
-
+            return await _repository.GetUserByUserName(userName);           
         }
 
-        public bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
-        {
-            using (var hmac = new HMACSHA512(passwordSalt))
-            {
-                var coputedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return coputedHash.SequenceEqual(passwordHash);
-            }
-        }
+        //public bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
+        //{
+        //    using (var hmac = new HMACSHA512(passwordSalt))
+        //    {
+        //        var coputedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+        //        return coputedHash.SequenceEqual(passwordHash);
+        //    }
+        //}
     }
 }

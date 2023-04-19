@@ -1,6 +1,8 @@
 ﻿using ChallengeAlternativo.Core.Users;
 using ChallengeAlternativo.DTOs;
 using ChallengeAlternativo.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace ChallengeAlternativo.Helper
 {
@@ -59,6 +61,25 @@ namespace ChallengeAlternativo.Helper
 
             return country;
 
+        }
+        public static string EncriptarContraseña(string contraseña)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(contraseña));
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+
+        public static bool VerificarContraseña(string userpassword, string DTOpassword)
+        {
+            return userpassword.Equals(DTOpassword);
         }
 
     }

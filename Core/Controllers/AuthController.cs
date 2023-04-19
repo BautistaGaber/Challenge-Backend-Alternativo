@@ -1,5 +1,6 @@
 ﻿using ChallengeAlternativo.Core.Users;
 using ChallengeAlternativo.Core.Users.Services.Interfaces;
+using ChallengeAlternativo.Helper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using NuGet.Protocol;
@@ -41,7 +42,7 @@ namespace ChallengeAlternativo.Core.Controllers
             {
                 return BadRequest("User not found");
             }
-            if (!_services.VerifyPasswordHash(userDTO.Password, user.PasswordHash, user.PasswordSalt))
+            if (!ApiHelper.VerificarContraseña(user.Password,ApiHelper.EncriptarContraseña(userDTO.Password)))
             {
                 return BadRequest("Wrong password");
             }
